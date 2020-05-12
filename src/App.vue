@@ -400,13 +400,28 @@
     <v-footer :padless="true">
       <v-card flat tile width="100%" class="white lighten-1 text-center">
         <v-card-text>
-          lal
+          This is a open source profile page designed by me using
+          <a href="https://vuejs.org/" target="_blank">
+            Vuejs
+          </a>
+          and
+          <a href="http://vuetifyjs.com/" target="_blank">
+            Veutify.
+          </a>
+          <br />
+          Source:
+          <a
+            href="https://github.com/Guardado/vuemyprofilepage"
+            target="_blank"
+          >
+            github
+          </a>
         </v-card-text>
 
         <v-divider></v-divider>
 
         <v-card-text class="black--text">
-          {{ new Date().getFullYear() }} — <strong>Jorge Garza</strong>
+          @ {{ new Date().getFullYear() }} <strong>Jorge Garza</strong>
         </v-card-text>
       </v-card>
     </v-footer>
@@ -674,9 +689,9 @@ export default {
     getImgUrl(pic) {
       return require(pic);
     },
-    onIntersection(entries, observer) {
-      console.log(entries, observer);
-    },
+    // onIntersection(entries, observer) {
+    //   console.log(entries, observer);
+    // },
     onScroll(e) {
       // Iknow I should use intersection observers
       let scrollTop = e.target.documentElement.scrollTop;
