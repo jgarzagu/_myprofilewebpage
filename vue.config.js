@@ -1,3 +1,6 @@
 module.exports = {
-  publicPath: "https://cseweb.ucsd.edu/~jgarzagu/",
+  publicPath:
+    process.env.NODE_ENV === "production"
+      ? "https://cseweb.ucsd.edu/~jgarzagu/"
+      : "",
 };
