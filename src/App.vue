@@ -535,7 +535,7 @@
     <v-footer :padless="true">
       <v-card flat tile width="100%" class="white lighten-1 text-center">
         <v-card-text>
-          This is a open source profile page designed by me using
+          This is an open source profile page designed by me using
           <a href="https://vuejs.org/" target="_blank">
             Vuejs
           </a>
@@ -594,13 +594,13 @@ export default {
           "https://link.springer.com/chapter/10.1007%2F978-3-030-19274-7_23",
         paperImages: [
           {
-            src: "./assets/amalgam/1.png"
+            src: "./assets/amalgam/1.jpg"
           },
           {
-            src: "./assets/amalgam/2.png"
+            src: "./assets/amalgam/2.jpg"
           },
           {
-            src: "./assets/amalgam/3.png"
+            src: "./assets/amalgam/3.jpg"
           }
         ]
       },
@@ -612,13 +612,13 @@ export default {
         conferenceLink: "https://dl.acm.org/doi/10.1145/3328939.3329004",
         paperImages: [
           {
-            src: "./assets/echidna/1.png"
+            src: "./assets/echidna/1.jpg"
           },
           {
-            src: "./assets/echidna/2.png"
+            src: "./assets/echidna/2.jpg"
           },
           {
-            src: "./assets/echidna/3.png"
+            src: "./assets/echidna/3.jpg"
           }
         ]
       }
@@ -669,7 +669,7 @@ export default {
         years: "Years: Jan 2013 to July 2014",
         workImages: [
           {
-            src: "./assets/torrey/1.png"
+            src: "./assets/torrey/1.jpg"
           },
           {
             src: "./assets/torrey/3.jpg"
@@ -721,13 +721,13 @@ export default {
         link: "https://appliancizer.com/",
         images: [
           {
-            src: "./assets/appliancizer/2.png"
+            src: "./assets/appliancizer/2.jpg"
           },
           {
-            src: "./assets/appliancizer/1.png"
+            src: "./assets/appliancizer/1.jpg"
           },
           {
-            src: "./assets/appliancizer/3.png"
+            src: "./assets/appliancizer/3.jpg"
           }
         ]
       },
@@ -762,13 +762,13 @@ export default {
         link: "https://nvsl.github.io/Linuxduino/",
         images: [
           {
-            src: "./assets/linuxduino/1.png"
+            src: "./assets/linuxduino/1.jpg"
           },
           {
-            src: "./assets/linuxduino/2.png"
+            src: "./assets/linuxduino/2.jpg"
           },
           {
-            src: "./assets/linuxduino/3.png"
+            src: "./assets/linuxduino/3.jpg"
           }
         ]
       },
@@ -782,13 +782,13 @@ export default {
         haslink: false,
         images: [
           {
-            src: "./assets/customIC/2.png"
+            src: "./assets/customIC/2.jpg"
           },
           {
-            src: "./assets/customIC/1.png"
+            src: "./assets/customIC/1.jpg"
           },
           {
-            src: "./assets/customIC/3.png"
+            src: "./assets/customIC/3.jpg"
           }
         ]
       }
