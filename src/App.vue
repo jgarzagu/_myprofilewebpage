@@ -80,41 +80,30 @@
       </v-list-item>
 
       <v-divider></v-divider>
-      <div class="d-block justify-center" style="width:80%;">
-        <v-btn href="#aboutme" text>
-          <span class="navButtonFont">
-            ABOUT ME
-          </span>
+      <div style="width:100%;">
+        <!-- Too night to add a class right now -->
+        <v-btn style="justify-content:start" block href="#aboutme" text>
+          ABOUT ME
         </v-btn>
         <br />
-        <v-btn href="#publications" text>
-          <span class="navButtonFont">
-            Publications
-          </span>
+        <v-btn style="justify-content:start" block href="#publications" text>
+          Publications
         </v-btn>
         <br />
-        <v-btn href="#teaching" text>
-          <span class="navButtonFont">
-            Teaching
-          </span>
+        <v-btn style="justify-content:start" block href="#teaching" text>
+          Teaching
         </v-btn>
         <br />
-        <v-btn href="#work" text>
-          <span class="navButtonFont">
-            Work
-          </span>
+        <v-btn style="justify-content:start" block href="#work" text>
+          Work
         </v-btn>
         <br />
-        <v-btn href="#projects" text>
-          <span class="navButtonFont">
-            Projects
-          </span>
+        <v-btn style="justify-content:start" block href="#projects" text>
+          Projects
         </v-btn>
         <br />
-        <v-btn href="#news" text>
-          <span class="navButtonFont">
-            News
-          </span>
+        <v-btn style="justify-content:start" block href="#news" text>
+          News
         </v-btn>
       </div>
     </v-navigation-drawer>
@@ -512,7 +501,10 @@
       </v-card>
     </v-dialog>
     <!-- Image Zoom Dialog -->
-    <v-dialog v-model="zoomImageDialog" width="80%">
+    <v-dialog
+      v-model="zoomImageDialog"
+      :width="$vuetify.breakpoint.lgAndUp ? '50%' : '100%'"
+    >
       <v-card>
         <v-card-title class="white" primary-title>
           <v-spacer></v-spacer>
@@ -521,7 +513,7 @@
           </v-btn>
         </v-card-title>
 
-        <v-card-text v-if="zoomImageImage != ''">
+        <v-card-text class="pa-0" v-if="zoomImageImage != ''">
           <v-img
             :src="require('' + zoomImageImage)"
             :lazy-src="require('./assets/loading.svg')"
