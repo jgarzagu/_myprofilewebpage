@@ -1,4 +1,8 @@
 <template>
+  <!-- TODOS:
+ - Correct image sizes 
+ - Get a better lazy loading svg, check way the animated one isn't working.
+ -->
   <v-app>
     <!-- Background image  -->
     <v-img
@@ -16,14 +20,20 @@
       :dark="appBarTheme"
       dense
     >
-      <v-toolbar-title>
+      <v-app-bar-nav-icon
+        class="d-md-none"
+        @click="nav_drawer = true"
+      ></v-app-bar-nav-icon>
+
+      <v-toolbar-title class="d-none d-sm-flex">
         <v-btn href="#" text>
           <span class="navButtonFont font-weight-bold">
             Ph.D. Jorge Garza
           </span>
         </v-btn>
       </v-toolbar-title>
-      <div class="d-flex justify-center" style="width:80%;">
+
+      <div class="d-none d-md-flex justify-center" style="width:80%;">
         <v-btn href="#aboutme" text>
           <span class="navButtonFont">
             ABOUT ME
@@ -57,6 +67,58 @@
       </div>
     </v-app-bar>
 
+    <!-- Nav drawer -->
+    <v-navigation-drawer v-model="nav_drawer" dark fixed temporary>
+      <v-list-item>
+        <v-list-item-avatar>
+          <v-img :src="require('./assets/JessicaGarza.jpg')"></v-img>
+        </v-list-item-avatar>
+
+        <v-list-item-content>
+          <v-list-item-title>Jorge Garza</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+      <div class="d-block justify-center" style="width:80%;">
+        <v-btn href="#aboutme" text>
+          <span class="navButtonFont">
+            ABOUT ME
+          </span>
+        </v-btn>
+        <br />
+        <v-btn href="#publications" text>
+          <span class="navButtonFont">
+            Publications
+          </span>
+        </v-btn>
+        <br />
+        <v-btn href="#teaching" text>
+          <span class="navButtonFont">
+            Teaching
+          </span>
+        </v-btn>
+        <br />
+        <v-btn href="#work" text>
+          <span class="navButtonFont">
+            Work
+          </span>
+        </v-btn>
+        <br />
+        <v-btn href="#projects" text>
+          <span class="navButtonFont">
+            Projects
+          </span>
+        </v-btn>
+        <br />
+        <v-btn href="#news" text>
+          <span class="navButtonFont">
+            News
+          </span>
+        </v-btn>
+      </div>
+    </v-navigation-drawer>
+
     <v-content id="content" style="background-color:#E8E8E8;">
       <v-container>
         <material-card
@@ -67,7 +129,7 @@
           :avatar="require('./assets/JessicaGarza.jpg')"
         >
           <v-card-text id="cardText">
-            <v-container class="px-12">
+            <v-container class="px-0">
               <div class="text-center">
                 <h1 class="display-1 font-weight-light mb-3 black--text">
                   Jorge Garza
@@ -89,7 +151,7 @@
               >
                 About me
               </h1>
-              <v-container class="px-12">
+              <v-container class="px-0">
                 <p class="body-1 black--text">
                   <!-- <p class="body-1 font-weight-regular"> -->
                   I am a Ph.D. candidate in the Department of Computer Science
@@ -134,7 +196,7 @@
                   >
                 </span>
               </h1>
-              <v-container class="px-12">
+              <v-container class="px-0">
                 <!-- Publications Carousel -->
                 <v-card
                   v-for="(publication, i) in publications"
@@ -143,7 +205,7 @@
                   class="mt-6"
                 >
                   <v-row dense>
-                    <v-col cols="6">
+                    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
                       <v-container>
                         <p class="body-1 black--text pb-0 mb-0">
                           {{ publication.title }}
@@ -157,7 +219,7 @@
                         </p>
                       </v-container>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
                       <v-carousel
                         :continuous="false"
                         :cycle="false"
@@ -192,7 +254,7 @@
               >
                 Teaching
               </h1>
-              <v-container class="px-12">
+              <v-container class="px-0">
                 <!-- Teaching Carousel -->
                 <v-card
                   v-for="(teaching, i) in teachings"
@@ -201,7 +263,7 @@
                   class="mt-6"
                 >
                   <v-row dense>
-                    <v-col cols="6">
+                    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
                       <v-container>
                         <p class="body-1 black--text">
                           {{ teaching.title }}
@@ -218,7 +280,7 @@
                         </p>
                       </v-container>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
                       <v-carousel
                         :continuous="false"
                         :cycle="false"
@@ -253,7 +315,7 @@
               >
                 Work Experience
               </h1>
-              <v-container class="px-12">
+              <v-container class="px-0">
                 <!-- Work Carousel -->
                 <v-card
                   v-for="(work, i) in works"
@@ -262,7 +324,7 @@
                   class="mt-6"
                 >
                   <v-row v-if="work.workImages.length != 0" dense>
-                    <v-col cols="6">
+                    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
                       <v-container>
                         <p class="body-1 black--text pb-0 mb-0">
                           {{ work.title }}
@@ -272,7 +334,7 @@
                         </p>
                       </v-container>
                     </v-col>
-                    <v-col cols="6">
+                    <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 6">
                       <v-carousel
                         :continuous="false"
                         :cycle="false"
@@ -325,11 +387,18 @@
               >
                 Projects
               </h1>
-              <v-container fluid class="px-12">
+              <v-container fluid class="px-0">
                 <div v-for="(project, i) in projects" :key="i">
+                  <v-card-title>{{ project.title }}</v-card-title>
                   <v-card
                     elevation="6"
-                    class="ml-6 mb-4 float-right"
+                    :class="{
+                      'ml-0': true,
+                      'mb-4': true,
+                      'float-right': $vuetify.breakpoint.smAndDown
+                        ? false
+                        : true
+                    }"
                     width="400px"
                   >
                     <v-carousel
@@ -354,8 +423,10 @@
                       </v-carousel-item>
                     </v-carousel>
                   </v-card>
-                  <v-card-title>{{ project.title }}</v-card-title>
-                  <p class="body-1 font-weight-light ma-4 text-warp">
+                  <p
+                    class="body-1 font-weight-light ma-4 text-warp"
+                    :style="{ 'min-height': projects_carouselHeight }"
+                  >
                     <span v-if="project.haslink == true">
                       Project Link:
                       <a :href="project.link" target="_blank">
@@ -376,7 +447,7 @@
               >
                 News
               </h1>
-              <v-container class="px-12">
+              <v-container class="px-0">
                 <v-timeline v-for="(theNew, i) in news" :key="i" dense>
                   <v-timeline-item :color="theNew.color"
                     ><v-card class="elevation-2">
@@ -385,11 +456,11 @@
                         v-if="theNew.image != undefined"
                         dense
                       >
-                        <v-col cols="8">
+                        <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 8">
                           <v-card-subtitle v-html="theNew.about">
                           </v-card-subtitle>
                         </v-col>
-                        <v-col cols="4">
+                        <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 4">
                           <v-img
                             class="zoominPointer"
                             @click="zoomImage(theNew.image)"
@@ -504,6 +575,8 @@ export default {
   data: () => ({
     appBarColor: "transparent",
     appBarTheme: true,
+    // Nav drawer
+    nav_drawer: false,
     // ZoomIn Dialog
     zoomCarouselDialog: false,
     zoomCarouselImages: "",
