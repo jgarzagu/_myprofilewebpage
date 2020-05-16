@@ -71,7 +71,7 @@
     <v-navigation-drawer v-model="nav_drawer" dark fixed temporary>
       <v-list-item>
         <v-list-item-avatar>
-          <v-img :src="require('./assets/JessicaGarza.jpg')"></v-img>
+          <v-img :src="require('./assets/JessicaGarza2.jpg')"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
@@ -115,7 +115,7 @@
           style="margin-top: 15%"
           class="v-card-profile"
           raised
-          :avatar="require('./assets/JessicaGarza.jpg')"
+          :avatar="require('./assets/JessicaGarza4.jpg')"
         >
           <v-card-text id="cardText">
             <v-container class="px-0">
