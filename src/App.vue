@@ -7,8 +7,8 @@
     <!-- Background image  -->
     <v-img
       alt="Background Image"
-      src="./assets/profilepic.jpg"
-      style="position:absolute; width:100%; height:400px"
+      src="./assets/profilepic4.jpg"
+      style="position:absolute; width:100%; height:550px"
     />
 
     <!-- App bar  -->
@@ -33,7 +33,7 @@
         </v-btn>
       </v-toolbar-title>
 
-      <div class="d-none d-md-flex justify-center" style="width:80%;">
+      <div class="d-none d-md-flex justify-center" style="width:80%">
         <v-btn href="#aboutme" text>
           <span class="navButtonFont">
             ABOUT ME
@@ -49,11 +49,11 @@
             Teaching
           </span>
         </v-btn>
-        <v-btn href="#work" text>
+        <!-- <v-btn href="#work" text>
           <span class="navButtonFont">
             Work
           </span>
-        </v-btn>
+        </v-btn> -->
         <v-btn href="#projects" text>
           <span class="navButtonFont">
             Projects
@@ -71,7 +71,7 @@
     <v-navigation-drawer v-model="nav_drawer" dark fixed temporary>
       <v-list-item>
         <v-list-item-avatar>
-          <v-img :src="require('./assets/JessicaGarza2.jpg')"></v-img>
+          <v-img :src="require('./assets/JessicaGarza3.jpg')"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
@@ -94,10 +94,10 @@
           Teaching
         </v-btn>
         <br />
-        <v-btn style="justify-content:start" block href="#work" text>
+        <!-- <v-btn style="justify-content:start" block href="#work" text>
           Work
         </v-btn>
-        <br />
+        <br /> -->
         <v-btn style="justify-content:start" block href="#projects" text>
           Projects
         </v-btn>
@@ -108,14 +108,16 @@
       </div>
     </v-navigation-drawer>
 
-    <v-content id="content" style="background-color:#E8E8E8;">
-      <v-container>
+    <v-content id="content" style="background-color:#E8E8E8">
+      <v-container
+        :style="{ width: $vuetify.breakpoint.lgAndUp ? '60%' : '100%' }"
+      >
         <material-card
           id="materialCard"
           style="margin-top: 15%"
           class="v-card-profile"
           raised
-          :avatar="require('./assets/JessicaGarza4.jpg')"
+          :avatar="require('./assets/JessicaGarza3.jpg')"
         >
           <v-card-text id="cardText">
             <v-container class="px-0">
@@ -141,7 +143,7 @@
                 About me
               </h1>
               <v-container class="px-0">
-                <p class="body-1 black--text">
+                <p class="font-weight-light body-1 text--darken-3 grey--text">
                   <!-- <p class="body-1 font-weight-regular"> -->
                   I am a Ph.D. candidate in the Department of Computer Science
                   and Engineering (<a
@@ -164,12 +166,12 @@
                   <a href="http://swanson.ucsd.edu/" target="_blank"
                     >Steven Swanson</a
                   >. My research interests are web interfaces, human computer
-                  interaction, computer architecture, and embedded systems. My
-                  research objective is to facilitate the design of electronic
-                  devices by creating Computer-aided design (CAD) tools. A CAD
-                  I'm currently working at is a novel tool that can transform
-                  web pages into actual physical devices by making HTML DOM
-                  elements interact with the physical domain.
+                  interaction, computer architecture, IoT, and embedded systems.
+                  My research objective is to facilitate the design of
+                  electronic devices by creating Computer-aided design (CAD)
+                  tools. A CAD I'm currently working at is a novel tool that can
+                  transform web pages into actual physical devices by making
+                  HTML DOM elements interact with the physical domain.
                 </p>
               </v-container>
               <h1
@@ -190,7 +192,7 @@
                 <v-card
                   v-for="(publication, i) in publications"
                   :key="i"
-                  elevation="6"
+                  elevation="0"
                   class="mt-6"
                 >
                   <v-row dense>
@@ -199,7 +201,7 @@
                         <p class="body-1 black--text pb-0 mb-0">
                           {{ publication.title }}
                         </p>
-                        <p class="body-2 font-weight-light">
+                        <p class="body-1 font-weight-light">
                           {{ publication.authors }}
                           <br />
                           <a :href="publication.conferenceLink" target="_blank">
@@ -235,8 +237,6 @@
                 </v-card>
                 <!-- END: Publcations Carousel -->
               </v-container>
-              <br />
-              <br />
               <h1
                 id="teaching"
                 class="display-1 font-weight-light pt-12 black--text"
@@ -248,7 +248,7 @@
                 <v-card
                   v-for="(teaching, i) in teachings"
                   :key="i"
-                  elevation="6"
+                  elevation="0"
                   class="mt-6"
                 >
                   <v-row dense>
@@ -257,10 +257,10 @@
                         <p class="body-1 black--text">
                           {{ teaching.title }}
                         </p>
-                        <p class="body-2 font-italic font-weight-regular">
+                        <p class="body-1 font-weight-light">
                           {{ teaching.about }}
                         </p>
-                        <p class="body-2 font-weight-light mb-0">
+                        <p class="body-1 font-weight-light mb-0">
                           {{ teaching.years }}
                           <br />
                           <a :href="teaching.webPageLink" target="_blank">
@@ -296,16 +296,13 @@
                 </v-card>
                 <!-- END: Teching Carousel -->
               </v-container>
-              <br />
-              <br />
-              <h1
+              <!-- <h1
                 id="work"
                 class="display-1 font-weight-light pt-12 black--text"
               >
                 Work Experience
               </h1>
               <v-container class="px-0">
-                <!-- Work Carousel -->
                 <v-card
                   v-for="(work, i) in works"
                   :key="i"
@@ -366,10 +363,9 @@
                     </v-expansion-panel>
                   </v-expansion-panels>
                 </v-card>
-                <!-- END: Work Carousel -->
               </v-container>
               <br />
-              <br />
+              <br /> -->
               <h1
                 id="projects"
                 class="display-1 font-weight-light pt-12 black--text"
@@ -380,9 +376,9 @@
                 <div v-for="(project, i) in projects" :key="i">
                   <v-card-title>{{ project.title }}</v-card-title>
                   <v-card
-                    elevation="6"
+                    elevation="0"
                     :class="{
-                      'ml-0': true,
+                      'ml-6': $vuetify.breakpoint.mdAndUp ? true : false,
                       'mb-4': true,
                       'float-right': $vuetify.breakpoint.smAndDown
                         ? false
@@ -413,7 +409,7 @@
                     </v-carousel>
                   </v-card>
                   <p
-                    class="body-1 font-weight-light ma-4 text-warp"
+                    class="body-1 font-weight-light title text--darken-3 grey--text ma-4 text-warp"
                     :style="{ 'min-height': projects_carouselHeight }"
                   >
                     <span v-if="project.haslink == true">
@@ -428,8 +424,6 @@
                   </p>
                 </div>
               </v-container>
-              <br />
-              <br />
               <h1
                 id="news"
                 class="display-1 font-weight-light pt-12 black--text"
@@ -622,7 +616,7 @@ export default {
         title:
           "Graduate Teaching Assistant (CSE176e/276e: Robotic System Design and Implementation)",
         about:
-          '"Teach and help students build their own quadcopters from scratch. "',
+          "Teach and help students build their own quadcopters from scratch.",
         years: "Years: Spring 2015 & 2016",
         webPage: "The Quadcopter Class",
         webPageLink:
@@ -654,7 +648,7 @@ export default {
           "Jr. Embedded Linux Software Engineer / Product Engineer at Torrey",
         about: `Responsible for developing Linux Device Drivers to the WLS scale,
         a labeling weight scale developed at the company for commercial use. 
-        Also responsible for some of the UI designs. At the same time, 
+        Also responsible for some of the GUI designs. At the same time, 
         I developed a Bluetooth Low Energy digital temperature controller 
         (PCB and firmware) for use in fridges and coolers and an Android 
         app to be used with it.`,
@@ -678,9 +672,9 @@ export default {
         ]
       },
       {
-        title: "Research Asistant at ITESM",
+        title: "Research Assistant at ITESM",
         about: `Worked in a Tele-medicine project building and integrating the 
-        IEE 802.15.4 protocol (Zigbee stack) to Android. The goal was to research
+        IEEE 802.15.4 protocol (Zigbee stack) to Android. The goal was to research
         the medical applications that could exist with medical device sensors 
         connected to smartphones under the Zigbee mesh network protocol.`,
         years: "Years: Jun 2012 to Dec 2012",
@@ -707,7 +701,7 @@ export default {
         and hardware interfacing code from web programming languages. 
         Compared to previous tools, Appliancizer allows synthesis without requiring 
         adding hardware specifications into the programming language used for hardware 
-        description. Therefore, with our tool, existing web program applications can be 
+        description. With our tool, existing web program applications can be 
         transformed into electronic devices with minimal effort.`,
         haslink: true,
         link: "https://appliancizer.com/",
@@ -745,10 +739,10 @@ export default {
       },
       {
         title: "Linuxduino",
-        about: `Linuxduino is a C++/Javascript library port of the Arduino 
-        Programing language for embedded systems running Linux (e.g., Raspberry
-         PI, DragonBoard 410c, even your own Linux Computer). Linuxduino was 
-         ported to JavaScript using WebAssembly. Coming soon with a test board 
+        about: `Linuxduino is a C++/JavaScript library that enables you to 
+        program embedded systems running Linux like an Arduino microcontroller, 
+        facilitating the development of IoT devices. Linuxduino was 
+        ported to JavaScript using WebAssembly. Coming soon with a test board 
          (see it at the end of the pics).`,
         haslink: true,
         link: "https://nvsl.github.io/Linuxduino/",
@@ -761,6 +755,70 @@ export default {
           },
           {
             src: "./assets/linuxduino/3.jpg"
+          }
+        ]
+      },
+      {
+        title: `Classification of Optional Practical Training (OPT)
+         comments using a Naive Bayes classifier`,
+        about: `A data mining project where we classified 42,925 comments 
+          from a Department of Homeland Security
+         (DHS) forum as opposing or supporting of the OPT extension proposed in 2008
+          and challenged in 2015 by a US federal court.  We use a  machine-learning
+           algorithm to make predictions on a trained set and found that 
+           approximately 85.17% of the users support OPT extension while 14.83% 
+           oppose it.`,
+        haslink: true,
+        link: "./pdfs/classificationOfOPT.pdf",
+        images: [
+          {
+            src: "./assets/datamining/1.jpg"
+          },
+          {
+            src: "./assets/datamining/2.jpg"
+          }
+        ]
+      },
+      {
+        title: "Bluerave",
+        about: `Bluerave is a C# GUI program that syncs RGB LED Strips connected
+         using Bluetooth LE to Spotify Music. Users can create and save different
+          color patterns that sync with the music beats detected by our program.
+          A memorable class project.`,
+        haslink: true,
+        link: "https://youtu.be/ixRNBVFnqbo",
+        images: [
+          {
+            src: "./assets/bluerave/1.jpg"
+          },
+          {
+            src: "./assets/bluerave/2.jpg"
+          },
+          {
+            src: "./assets/bluerave/3.jpg"
+          },
+          {
+            src: "./assets/bluerave/4.jpg"
+          },
+          {
+            src: "./assets/bluerave/5.jpg"
+          }
+        ]
+      },
+      {
+        title: "Autonomous Robot",
+        about: `Making a rumba attached to a robotic arm and with some cameras 
+        an autonomous robot that can pick up balls and place them in a basket. 
+        A fun robotics competition at our university, we won 2nd place!. 
+        I was in charge of the computer vision algorithms using OpenCV.`,
+        haslink: true,
+        link: "https://www.youtube.com/watch?v=CpzxKWk6ij0",
+        images: [
+          {
+            src: "./assets/robotics/1.jpg"
+          },
+          {
+            src: "./assets/robotics/2.jpg"
           }
         ]
       },
@@ -789,7 +847,7 @@ export default {
     news: [
       {
         about: `Congratulations to my mentees Elsa Taylor, Sachin, and Heather 
-        for winning second place in the 2019 Fall quarter IEEE projects! They 
+        for winning second place at the 2019 Fall quarter IEEE projects. They 
         designed an IoT smart weight scale that measures calories for 
         different products placed on the weight scale.`,
         image: "./assets/news/mentees.jpg",
@@ -855,15 +913,7 @@ export default {
 
 <style scoped>
 #app {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-
-.navButtonFont {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  color: #f5f5f5;
 }
 
 /* Veutify */
@@ -873,5 +923,9 @@ export default {
 
 .zoominPointer:hover {
   cursor: zoom-in;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

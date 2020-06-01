@@ -3,9 +3,11 @@
     <div class="d-flex grow flex-wrap">
       <v-avatar
         v-if="avatar"
-        size="180"
+        width="200"
+        height="300"
         class="mx-auto v-card--material__avatar elevation-6"
         color="grey"
+        tile
       >
         <v-img :src="avatar" />
       </v-avatar>
