@@ -153,7 +153,7 @@
                   and Engineering (<a
                     href="https://cse.ucsd.edu/"
                     target="_blank"
-                    >UCSD</a
+                    >CSE</a
                   >) at the University of California, San Diego (<a
                     href="https://ucsd.edu/"
                     target="_blank"
