@@ -4,7 +4,7 @@
       <v-avatar
         v-if="avatar"
         width="200"
-        height="300"
+        height="277"
         class="mx-auto v-card--material__avatar elevation-6"
         color="grey"
         tile

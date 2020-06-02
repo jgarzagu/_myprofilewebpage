@@ -7,7 +7,7 @@
     <!-- Background image  -->
     <v-img
       alt="Background Image"
-      src="./assets/profilepic4.jpg"
+      src="./assets/background.jpg"
       style="position:absolute; width:100%; height:550px"
     />
 
@@ -28,7 +28,7 @@
       <v-toolbar-title class="d-none d-sm-flex">
         <v-btn href="#" text>
           <span class="navButtonFont font-weight-bold">
-            Ph.D. Jorge Garza
+            Jorge Garza
           </span>
         </v-btn>
       </v-toolbar-title>
@@ -71,11 +71,15 @@
     <v-navigation-drawer v-model="nav_drawer" dark fixed temporary>
       <v-list-item>
         <v-list-item-avatar>
-          <v-img :src="require('./assets/JessicaGarza3.jpg')"></v-img>
+          <v-img :src="require('./assets/profilepic.jpg')"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>Jorge Garza</v-list-item-title>
+          <v-list-item-title>
+            <v-btn style="justify-content:start" block href="#" text>
+              Jorge Garza
+            </v-btn>
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -117,7 +121,7 @@
           style="margin-top: 15%"
           class="v-card-profile"
           raised
-          :avatar="require('./assets/JessicaGarza3.jpg')"
+          :avatar="require('./assets/profilepic.jpg')"
         >
           <v-card-text id="cardText">
             <v-container class="px-0">
