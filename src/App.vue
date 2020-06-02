@@ -173,7 +173,7 @@
                   interaction, computer architecture, IoT, and embedded systems.
                   My research objective is to facilitate the design of
                   electronic devices by creating Computer-aided design (CAD)
-                  tools. A CAD I'm currently working at is a novel tool that can
+                  tools. A CAD I'm currently working on is a novel tool that can
                   transform web pages into actual physical devices by making
                   HTML DOM elements interact with the physical domain.
                 </p>
