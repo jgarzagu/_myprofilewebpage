@@ -175,7 +175,7 @@
                   electronic devices by creating Computer-aided design (CAD)
                   tools. A CAD I'm currently working on is a novel tool that can
                   transform web pages into actual physical devices by making
-                  HTML DOM elements interact with the physical domain.
+                  HTML DOM elements directly interact with the physical world.
                 </p>
               </v-container>
               <h1
@@ -210,6 +210,14 @@
                           <br />
                           <a :href="publication.conferenceLink" target="_blank">
                             {{ publication.conference }}
+                          </a>
+                          <span v-if="publication.conferenceVideo">|</span>
+                          <a
+                            v-if="publication.conferenceVideo"
+                            :href="publication.conferenceVideo"
+                            target="_blank"
+                          >
+                            Video
                           </a>
                         </p>
                       </v-container>
@@ -444,6 +452,9 @@
                         dense
                       >
                         <v-col :cols="$vuetify.breakpoint.smAndDown ? 12 : 8">
+                          <v-card-title class="overline font-italic"
+                            >{{ theNew.date }}
+                          </v-card-title>
                           <v-card-subtitle v-html="theNew.about">
                           </v-card-subtitle>
                         </v-col>
@@ -458,8 +469,13 @@
                           />
                         </v-col>
                       </v-row>
-                      <v-card-subtitle v-else v-html="theNew.about">
-                      </v-card-subtitle>
+                      <div v-else>
+                        <v-card-title class="overline font-italic"
+                          >{{ theNew.date }}
+                        </v-card-title>
+                        <v-card-subtitle v-html="theNew.about">
+                        </v-card-subtitle>
+                      </div>
                     </v-card>
                   </v-timeline-item>
                 </v-timeline>
@@ -575,6 +591,21 @@ export default {
     // Publications
     publications_carouselHeight: "120px",
     publications: [
+      {
+        title: "Appliancizer: Transforming Web Pages into Electronic Gadgets",
+        authors: "Jorge Garza, Devon J. Merrill, Steven Swanson",
+        conference: "UIST 2020",
+        conferenceLink: "https://dl.acm.org/doi/abs/10.1145/3379350.3416158",
+        conferenceVideo: "https://www.youtube.com/watch?v=KHufWXRw2rU",
+        paperImages: [
+          {
+            src: "./assets/appliancizer/4.jpg"
+          },
+          {
+            src: "./assets/appliancizer/1.jpg"
+          }
+        ]
+      },
       {
         title:
           "Amalgam: Hardware Hacking for Web Developers with Style (Sheets)",
@@ -700,13 +731,16 @@ export default {
     projects: [
       {
         title: "Appliancizer",
-        about: `Appliancizer is an online synthesis tool for circuits which targets
-         embedded processors. Our tool allows automatic generation of PCB layout designs
-        and hardware interfacing code from web programming languages. 
-        Compared to previous tools, Appliancizer allows synthesis without requiring 
-        adding hardware specifications into the programming language used for hardware 
-        description. With our tool, existing web program applications can be 
-        transformed into electronic devices with minimal effort.`,
+        about: `Devices with devices with mixed digital and tangible user interfaces have become more popular 
+        (for example, smart thermostats, smart displays, etc.). Typically, you need to build the hardware and 
+        software interfaces separately, which requires a lot of time and experience. Appliancizer is an online
+         synthesis tool that allows web developers to simply create a web page and our tool can transform similar
+          digital interfaces (for example, a software HTML button) into physical interfaces that match the digital
+           interface (e.g. a phisical tactile push button). Our tool also enables automatic generation of PCB 
+           layout designs and hardware interface code from web programming languages. Compared to previous tools, 
+           Appliancizer enables synthesis without the need to add hardware specifications in the programming 
+           language used for hardware description. With our tool, existing web program applications can be 
+           transformed into electronic devices with minimal effort. `,
         haslink: true,
         link: "https://appliancizer.com/",
         images: [
@@ -731,13 +765,13 @@ export default {
           "https://github.com/Guardado/OpenSource_ARTIK530_DevelopmentBoard",
         images: [
           {
-            src: "./assets/artik/1.jpg"
+            src: "./assets/artik/2.jpg"
           },
           {
             src: "./assets/artik/3.jpg"
           },
           {
-            src: "./assets/artik/2.jpg"
+            src: "./assets/artik/1.jpg"
           }
         ]
       },
@@ -850,14 +884,28 @@ export default {
     // News, colors: cyan, green, pink, amber, orange
     news: [
       {
+        date: "Oct 20-23, 2020",
+        about: `Presented my work "Applainczier: Transforming Web Pages into Electronic Gadgers" at 
+        <a href="https://uist.acm.org/uist2020/" target="_blank">
+            UIST 2020
+          </a>
+        . This conference was unusual in the sense that everything was held online on Discord. Much extra work was required
+         but due to the reduction in ticket prices it allowed a record number 
+         of attendees from all over the world to attend the conference.`,
+        image: "./assets/news/Discord.jpg",
+        color: "amber"
+      },
+      {
+        date: "Dec 5, 2019",
         about: `Congratulations to my mentees Elsa Taylor, Sachin, and Heather 
         for winning second place at the 2019 Fall quarter IEEE projects. They 
         designed an IoT smart weight scale that measures calories for 
         different products placed on the weight scale.`,
         image: "./assets/news/mentees.jpg",
-        color: "cyan"
+        color: "pink"
       },
       {
+        date: "Sep 27, 2019",
         about: `First place at 
           <a href="https://www.96boards.org/go/san19-community/" target="_blank">
             SAN19 Linaro Connect Hackaton
@@ -866,8 +914,9 @@ export default {
         color: "green"
       },
       {
+        date: "Sep 15, 2019",
         about: `Finish my thesis proposal!`,
-        color: "pink"
+        color: "cyan"
       }
     ]
   }),
