@@ -219,6 +219,14 @@
                           >
                             Video
                           </a>
+                          <span v-if="publication.pdf">|</span>
+                          <a
+                            v-if="publication.pdf"
+                            :href="publication.pdf"
+                            target="_blank"
+                          >
+                            PDF
+                          </a>
                         </p>
                       </v-container>
                     </v-col>
@@ -597,6 +605,7 @@ export default {
         conference: "UIST 2020",
         conferenceLink: "https://dl.acm.org/doi/abs/10.1145/3379350.3416158",
         conferenceVideo: "https://www.youtube.com/watch?v=KHufWXRw2rU",
+        pdf: "./pdfs/Garza_UIST2020_Appliancizer.pdf",
         paperImages: [
           {
             src: "./assets/appliancizer/4.jpg"
@@ -613,6 +622,7 @@ export default {
         conference: "ICWE 2019",
         conferenceLink:
           "https://link.springer.com/chapter/10.1007%2F978-3-030-19274-7_23",
+        pdf: "./pdfs/Garza_ICWE2019_AmalgamHardwareHackingForWebDev.pdf",
         paperImages: [
           {
             src: "./assets/amalgam/1.jpg"
@@ -631,6 +641,7 @@ export default {
         authors: "Devon J. Merrill, Jorge Garza, Steven Swanson",
         conference: "SCF 2019",
         conferenceLink: "https://dl.acm.org/doi/10.1145/3328939.3329004",
+        pdf: "./pdfs/Merrill_SCF2018_Echidna_MixedDomainComputationalImpl.pdf",
         paperImages: [
           {
             src: "./assets/echidna/1.jpg"
