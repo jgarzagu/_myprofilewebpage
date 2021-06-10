@@ -114,7 +114,7 @@
 
     <v-content id="content" style="background-color:#E8E8E8">
       <v-container
-        :style="{ width: $vuetify.breakpoint.lgAndUp ? '60%' : '100%' }"
+        :style="{ width: $vuetify.breakpoint.lgAndUp ? '65%' : '100%' }"
       >
         <material-card
           id="materialCard"
@@ -169,13 +169,24 @@
                   >), and currently working with Professor
                   <a href="http://swanson.ucsd.edu/" target="_blank"
                     >Steven Swanson</a
-                  >. My research interests are web interfaces, human computer
-                  interaction, computer architecture, IoT, and embedded systems.
-                  My research objective is to facilitate the design of
-                  electronic devices by creating Computer-aided design (CAD)
-                  tools. A CAD I'm currently working on is a novel tool that can
+                  >. My research interests are human-computer interaction,
+                  hardware and devices, web applications, computer-aided design
+                  (CAD), and embedded systems. My research goal is to facilitate
+                  and accelerate the design of electronic devices by creating
+                  computer-aided design (CAD) tools with new workflows and
+                  interactions. I'm currently working on a novel tool that can
                   transform web pages into actual physical devices by making
                   HTML DOM elements directly interact with the physical world.
+                  An example of a device that we have created with our tool is a
+                  minimal replica of a NEST thermostat that was first developed
+                  as a web page and then almost automatically transformed into
+                  an electronic
+                  <a
+                    href="https://www.youtube.com/watch?v=53LRpMp2_vM"
+                    target="_blank"
+                    >device</a
+                  >
+                  by our tool.
                 </p>
               </v-container>
               <h1
@@ -246,10 +257,29 @@
                             class="zoominPointer"
                             @click="zoomImage(paperImages.src)"
                             :src="require('' + paperImages.src)"
-                            :lazy-src="require('./assets/loading.svg')"
                             contain
                             :height="publications_carouselHeight"
-                          />
+                          >
+                            <template v-slot:placeholder>
+                              <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                              >
+                                <v-sheet
+                                  color="grey lighten-1"
+                                  class="pa-0"
+                                  style="width:100%"
+                                >
+                                  <v-skeleton-loader
+                                    class="mx-auto"
+                                    width="100%"
+                                    type="image"
+                                  ></v-skeleton-loader>
+                                </v-sheet>
+                              </v-row>
+                            </template>
+                          </v-img>
                         </v-carousel-item>
                       </v-carousel>
                     </v-col>
@@ -277,9 +307,10 @@
                         <p class="body-1 black--text">
                           {{ teaching.title }}
                         </p>
-                        <p class="body-1 font-weight-light">
-                          {{ teaching.about }}
-                        </p>
+                        <p
+                          class="body-1 font-weight-light"
+                          v-html="teaching.about"
+                        ></p>
                         <p class="body-1 font-weight-light mb-0">
                           {{ teaching.years }}
                           <br />
@@ -305,10 +336,29 @@
                             class="zoominPointer"
                             @click="zoomImage(teachingImages.src)"
                             :src="require('' + teachingImages.src)"
-                            :lazy-src="require('./assets/loading.svg')"
                             contain
                             :height="teachings_carouselHeight"
-                          />
+                          >
+                            <template v-slot:placeholder>
+                              <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                              >
+                                <v-sheet
+                                  color="grey lighten-1"
+                                  class="pa-0"
+                                  style="width:100%"
+                                >
+                                  <v-skeleton-loader
+                                    class="mx-auto"
+                                    width="100%"
+                                    type="image"
+                                  ></v-skeleton-loader>
+                                </v-sheet>
+                              </v-row>
+                            </template>
+                          </v-img>
                         </v-carousel-item>
                       </v-carousel>
                     </v-col>
@@ -394,7 +444,9 @@
               </h1>
               <v-container fluid class="px-0">
                 <div v-for="(project, i) in projects" :key="i">
-                  <v-card-title>{{ project.title }}</v-card-title>
+                  <v-card-title class="text-wrap">{{
+                    project.title
+                  }}</v-card-title>
                   <v-card
                     elevation="0"
                     :class="{
@@ -421,10 +473,29 @@
                           class="zoominPointer"
                           @click="zoomImage(images.src)"
                           :src="require('' + images.src)"
-                          :lazy-src="require('./assets/loading.svg')"
                           contain
                           :height="projects_carouselHeight"
-                        />
+                        >
+                          <template v-slot:placeholder>
+                            <v-row
+                              class="fill-height ma-0"
+                              align="center"
+                              justify="center"
+                            >
+                              <v-sheet
+                                color="grey lighten-1"
+                                class="pa-0"
+                                style="width:100%"
+                              >
+                                <v-skeleton-loader
+                                  class="mx-auto"
+                                  width="100%"
+                                  type="image"
+                                ></v-skeleton-loader>
+                              </v-sheet>
+                            </v-row>
+                          </template>
+                        </v-img>
                       </v-carousel-item>
                     </v-carousel>
                   </v-card>
@@ -434,13 +505,18 @@
                   >
                     <span v-if="project.haslink == true">
                       Project Link:
-                      <a :href="project.link" target="_blank">
+                      <a
+                        style="display:block"
+                        class="text-truncate"
+                        :href="project.link"
+                        target="_blank"
+                      >
                         {{ project.link }}
                       </a>
                       <br />
-                      <br />
                     </span>
-                    {{ project.about }}
+                    <span v-html="project.about"> </span>
+                    <!-- {{ project.about }} -->
                   </p>
                 </div>
               </v-container>
@@ -471,10 +547,29 @@
                             class="zoominPointer"
                             @click="zoomImage(theNew.image)"
                             :src="require('' + theNew.image)"
-                            :lazy-src="require('./assets/loading.svg')"
                             contain
                             height="100px"
-                          />
+                          >
+                            <template v-slot:placeholder>
+                              <v-row
+                                class="fill-height ma-0"
+                                align="center"
+                                justify="center"
+                              >
+                                <v-sheet
+                                  color="grey lighten-1"
+                                  class="pa-0"
+                                  style="width:100%"
+                                >
+                                  <v-skeleton-loader
+                                    class="mx-auto"
+                                    width="100%"
+                                    type="image"
+                                  ></v-skeleton-loader>
+                                </v-sheet>
+                              </v-row>
+                            </template>
+                          </v-img>
                         </v-col>
                       </v-row>
                       <div v-else>
@@ -511,12 +606,27 @@
             :hide-delimiters="true"
           >
             <v-carousel-item v-for="(image, i) in zoomCarouselImages" :key="i">
-              <v-img
-                :src="require('' + image.src)"
-                :lazy-src="require('./assets/loading.svg')"
-                height="100%"
-                contain
-              />
+              <v-img :src="require('' + image.src)" height="100%" contain>
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-sheet
+                      color="grey lighten-1"
+                      class="pa-0"
+                      style="width:100%"
+                    >
+                      <v-skeleton-loader
+                        class="mx-auto"
+                        width="100%"
+                        type="image"
+                      ></v-skeleton-loader>
+                    </v-sheet>
+                  </v-row>
+                </template>
+              </v-img>
             </v-carousel-item>
           </v-carousel>
         </v-card-text>
@@ -536,12 +646,19 @@
         </v-card-title>
 
         <v-card-text class="pa-0" v-if="zoomImageImage != ''">
-          <v-img
-            :src="require('' + zoomImageImage)"
-            :lazy-src="require('./assets/loading.svg')"
-            height="100%"
-            contain
-          />
+          <v-img :src="require('' + zoomImageImage)" height="100%" contain>
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-sheet color="grey lighten-1" class="pa-0" style="width:100%">
+                  <v-skeleton-loader
+                    class="mx-auto"
+                    width="100%"
+                    type="image"
+                  ></v-skeleton-loader>
+                </v-sheet>
+              </v-row>
+            </template>
+          </v-img>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -600,7 +717,27 @@ export default {
     publications_carouselHeight: "120px",
     publications: [
       {
-        title: "Appliancizer: Transforming Web Pages into Electronic Gadgets",
+        title: "Appliancizer: Transforming Web Pages into Electronic Devices",
+        authors: "Jorge Garza, Devon J. Merrill, Steven Swanson",
+        conference: "CHI 2021",
+        conferenceLink: "https://dl.acm.org/doi/10.1145/3411764.3445732",
+        conferenceVideo: "https://www.youtube.com/watch?v=53LRpMp2_vM",
+        pdf: "./pdfs/Garza_CHI2021_Appliancizer.pdf",
+        paperImages: [
+          {
+            src: "./assets/appliancizer_full/1.jpg"
+          },
+          {
+            src: "./assets/appliancizer_full/2.png"
+          },
+          {
+            src: "./assets/appliancizer_full/3.jpg"
+          }
+        ]
+      },
+      {
+        title:
+          "Appliancizer: Transforming Web Pages into Electronic Gadgets (short paper)",
         authors: "Jorge Garza, Devon J. Merrill, Steven Swanson",
         conference: "UIST 2020",
         conferenceLink: "https://dl.acm.org/doi/abs/10.1145/3379350.3416158",
@@ -625,13 +762,13 @@ export default {
         pdf: "./pdfs/Garza_ICWE2019_AmalgamHardwareHackingForWebDev.pdf",
         paperImages: [
           {
-            src: "./assets/amalgam/1.jpg"
+            src: "./assets/amalgam/3.jpg"
           },
           {
             src: "./assets/amalgam/2.jpg"
           },
           {
-            src: "./assets/amalgam/3.jpg"
+            src: "./assets/amalgam/1.jpg"
           }
         ]
       },
@@ -661,8 +798,9 @@ export default {
       {
         title:
           "Graduate Teaching Assistant (CSE176e/276e: Robotic System Design and Implementation)",
-        about:
-          "Teach and help students build their own quadcopters from scratch.",
+        about: `Teach and help students build their own quadcopters from scratch. A class where knowledge of software, electronics, and control theory are put to the test to make student-designed printed circuit boards fly! | <a href="https://www.youtube.com/watch?v=2rSU4FmNnys" target="_blank">
+            Video
+          </a>`,
         years: "Years: Spring 2015 & 2016",
         webPage: "The Quadcopter Class",
         webPageLink:
@@ -770,13 +908,21 @@ export default {
         title: "Open Hardware ARTIK530 Carrier Board",
         about: `An open-source carrier board PCB for the Artik 530 
         System On Module (SOM) designed by me :D. I also developed a battery 
-        charger and a sound/mic codec for the carrier board.`,
+        charger and a sound/mic codec for the carrier board. <a href="https://www.youtube.com/watch?v=5hGKuZZr994" target="_blank">
+            Video
+          </a>`,
         haslink: true,
         link:
           "https://github.com/Guardado/OpenSource_ARTIK530_DevelopmentBoard",
         images: [
           {
             src: "./assets/artik/2.jpg"
+          },
+          {
+            src: "./assets/artik/5.jpg"
+          },
+          {
+            src: "./assets/artik/6.jpg"
           },
           {
             src: "./assets/artik/3.jpg"
@@ -892,11 +1038,51 @@ export default {
         ]
       }
     ],
-    // News, colors: cyan, green, pink, amber, orange
+    // News, colors: cyan, green, pink, amber, orange, purple
+    // colors2: cyan, red, amber, green, pink
     news: [
       {
+        date: "June 14, 2021",
+        about: `This summer I will have the opportunity to do an internship at Microsoft Research, <a href="https://www.microsoft.com/en-us/research/group/epic/" target="_blank">
+            EPIC
+          </a> research group. 
+        I am very excited to collaborate with them and l'm looking forward to learning a lot from them as well :).`,
+        image: "./assets/news/mslogo.jpg",
+        color: "cyan"
+      },
+      // {
+      //   date: "Apr 28, 2021",
+      //   about: `Presented a poster of our current research at
+      //   <a href="https://chi2021.acm.org/" target="_blank">
+      //       http://cseopenhouse.ucsd.edu/
+      //     </a>
+      //   . It's great to see all the amazing research that goes on in our department. I was featured on the CSE department Instagram: D.`,
+      //   image: "./assets/news/chi2021_logo.jpg",
+      //   color: "red"
+      // },
+      {
+        date: "May 8-13, 2021",
+        about: `Presented our research "Appliancizer: Transforming Web Pages into Electronic Devices" at 
+        <a href="https://chi2021.acm.org/" target="_blank">
+            CHI 2021
+          </a>
+        . Although this year the conference was virtual and I missed the opportunity to travel to Japan T_T the experience was great.
+         It's amazing how big this conference is and I also had the opportunity to meet the best researchers from around the world.`,
+        image: "./assets/news/chi2021_logo.jpg",
+        color: "red"
+      },
+      {
+        date: "Jan 21, 2021",
+        about: `My Open Hardware Carrier board PCB design (<a href="https://youtu.be/5hGKuZZr994" target="_blank">
+            Video
+          </a>) won the Grand Prize in a contest organized by Digikey. They gave me a lot of hardware tools that I 
+          will use to improve my hardware skills. Thank you Digikey!`,
+        image: "./assets/digikey/prize.jpg",
+        color: "amber"
+      },
+      {
         date: "Oct 20-23, 2020",
-        about: `Presented my work "Applainczier: Transforming Web Pages into Electronic Gadgers" at 
+        about: `Presented an interactive demo of our research "Appliancizer: Transforming Web Pages into Electronic Gadgets" at 
         <a href="https://uist.acm.org/uist2020/" target="_blank">
             UIST 2020
           </a>
@@ -904,7 +1090,7 @@ export default {
          but due to the reduction in ticket prices it allowed a record number 
          of attendees from all over the world to attend the conference.`,
         image: "./assets/news/Discord.jpg",
-        color: "amber"
+        color: "green"
       },
       {
         date: "Dec 5, 2019",
@@ -922,12 +1108,12 @@ export default {
             SAN19 Linaro Connect Hackaton
           </a> (Embedded Hackaton).`,
         image: "./assets/news/hackaton.jpg",
-        color: "green"
+        color: "cyan"
       },
       {
         date: "Sep 15, 2019",
-        about: `Finish my thesis proposal!`,
-        color: "cyan"
+        about: `Presented my thesis proposal!`,
+        color: "red"
       }
     ]
   }),
@@ -975,7 +1161,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #app {
   color: #f5f5f5;
 }
@@ -989,7 +1175,15 @@ export default {
   cursor: zoom-in;
 }
 
+/* Links decoration */
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+/* Solution for text breaking by vuetify */
+.v-card__text,
+.v-card__title {
+  word-break: normal !important;
 }
 </style>
