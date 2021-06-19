@@ -1,4 +1,8 @@
-# vuemyprofilepage
+# My Profile web page design
+Open sourced for you, anonymous watcher :). 
+
+Web framework: Vuejs
+UI framework: Veutify
 
 ## Project setup
 ```
