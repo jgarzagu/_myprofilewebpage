@@ -907,8 +907,8 @@ export default {
       {
         title: "Open Hardware ARTIK530 Carrier Board",
         about: `An open-source carrier board PCB for the Artik 530 
-        System On Module (SOM) designed by me :D. I also developed a battery 
-        charger and a sound/mic codec for the carrier board. <a href="https://www.youtube.com/watch?v=5hGKuZZr994" target="_blank">
+        System On Module (SOM) designed by me :D. I also designed a battery 
+        charger and a sound/mic codec PCB for the carrier board. <a href="https://www.youtube.com/watch?v=5hGKuZZr994" target="_blank">
             Video
           </a>`,
         haslink: true,
@@ -1043,10 +1043,11 @@ export default {
     news: [
       {
         date: "June 14, 2021",
-        about: `This summer I will have the opportunity to do an internship at Microsoft Research, <a href="https://www.microsoft.com/en-us/research/group/epic/" target="_blank">
+        about: `This summer, I'm excited to have the opportunity to intern at Microsoft Research, I will be joining the
+         <a href="https://www.microsoft.com/en-us/research/group/epic/" target="_blank">
             EPIC
-          </a> research group. 
-        I am very excited to collaborate with them and l'm looking forward to learning a lot from them as well :).`,
+          </a> research team. I am very excited to collaborate with them 
+          and l'm sure I will learn lot from them as well :).`,
         image: "./assets/news/mslogo.jpg",
         color: "cyan"
       },
@@ -1066,8 +1067,8 @@ export default {
         <a href="https://chi2021.acm.org/" target="_blank">
             CHI 2021
           </a>
-        . Although this year the conference was virtual and I missed the opportunity to travel to Japan T_T the experience was great.
-         It's amazing how big this conference is and I also had the opportunity to meet the best researchers from around the world.`,
+        . Although this year the conference was virtual and I missed the opportunity to travel to Japan T_T the experience was fantastic.
+         It's amazing how big this conference is. I also had the opportunity to meet some of the best researchers from around the world.`,
         image: "./assets/news/chi2021_logo.jpg",
         color: "red"
       },
@@ -1076,7 +1077,7 @@ export default {
         about: `My Open Hardware Carrier board PCB design (<a href="https://youtu.be/5hGKuZZr994" target="_blank">
             Video
           </a>) won the Grand Prize in a contest organized by Digikey. They gave me a lot of hardware tools that I 
-          will use to improve my hardware skills. Thank you Digikey!`,
+          will use to level-up my PCB designs. Thank you Digikey!`,
         image: "./assets/digikey/prize.jpg",
         color: "amber"
       },
@@ -1086,10 +1087,10 @@ export default {
         <a href="https://uist.acm.org/uist2020/" target="_blank">
             UIST 2020
           </a>
-        . This conference was unusual in the sense that everything was held online on Discord. Much extra work was required
-         but due to the reduction in ticket prices it allowed a record number 
+        . This conference was unusual, it all took place online on Discord. Much additional work was required to organize
+         the online conference. The good thing was that due to the reduction in ticket prices, it allowed a record number 
          of attendees from all over the world to attend the conference.`,
-        image: "./assets/news/Discord.jpg",
+        image: "./assets/news/uist2020.jpg",
         color: "green"
       },
       {
