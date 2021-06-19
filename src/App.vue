@@ -1043,7 +1043,7 @@ export default {
     news: [
       {
         date: "June 14, 2021",
-        about: `This summer, I'm excited to have the opportunity to intern at Microsoft Research, I will be joining the
+        about: `This summer, I will have the opportunity to do an internship at Microsoft Research and will join the
          <a href="https://www.microsoft.com/en-us/research/group/epic/" target="_blank">
             EPIC
           </a> research team. I am very excited to collaborate with them 
